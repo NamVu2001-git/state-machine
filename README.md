@@ -11,9 +11,9 @@
 | State | Hành động               | Điều kiện chuyển trạng thái      | Trạng thái kế tiếp |
 |-------|--------------------------|----------------------------------|---------------------|
 | 1     | Nháy 1 lần (Blink 1)     | `n >= 5`                         | Chuyển sang state 2 |
-| 2     | Nháy 2 lần (Blink 2)     | `n >= 20`                        | Chuyển sang state 3 |
-| 3     | Nháy 3 lần (Blink 3)     | `n >= 25`                        | Chuyển sang state 4 |
-| 4     | Nháy 4 lần (Blink 4)     | `n >= 30` → reset `n = 0`        | Quay về state 1     |
+| 2     | Nháy 2 lần (Blink 2)     | `n >= 10`                        | Chuyển sang state 3 |
+| 3     | Nháy 3 lần (Blink 3)     | `n >= 15`                        | Chuyển sang state 4 |
+| 4     | Nháy 4 lần (Blink 4)     | `n >= 20` → reset `n = 0`        | Quay về state 1     |
 
 Biến `n` là một bộ đếm vòng lặp, tăng sau mỗi lần thực thi
 (n = 0 khởi đầu)
