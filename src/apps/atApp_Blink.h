@@ -105,11 +105,6 @@ void  App_Blink::App_Blink_Execute()
 	static int state = 1;
 	static int n = 0;
 
-	if(atApp_Blink.User_Mode == APP_USER_MODE_DEBUG)
-	{
-		Serial.printf("State: %d, n: %d\n", state, n);
-	}
-
 	switch (state)
 	{
 		case 1:
@@ -119,17 +114,17 @@ void  App_Blink::App_Blink_Execute()
 
 		case 2:
 			atApp_Blink.Blink_Led(2);
-			if (n >= 20) state = 3;
+			if (n >= 10) state = 3;
 			break;
 
 		case 3:
 			atApp_Blink.Blink_Led(3);
-			if (n >= 25) state = 4;
+			if (n >= 15) state = 4;
 			break;
 
 		case 4:
 			atApp_Blink.Blink_Led(4);
-			if (n >= 30)
+			if (n >= 20)
 			{
 				n = 0;
 				state = 1;
@@ -140,9 +135,9 @@ void  App_Blink::App_Blink_Execute()
 	n++;
 	vTaskDelay(1000 / portTICK_PERIOD_MS); // delay 1 giây mỗi vòng
     if(atApp_Blink.User_Mode == APP_USER_MODE_DEBUG)
-    {
-		
-    }   
+	{
+		Serial.printf("State: %d, n: %d\n", state, n);
+	}  
 }
 void  App_Blink::App_Blink_Suspend(){}
 void  App_Blink::App_Blink_Resume(){}	  
